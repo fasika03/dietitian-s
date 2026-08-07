@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Root & Rise Nutrition — Gelila, RDN</title>
+<meta name="description" content="Gelila, RDN, offers 1:1 nutrition coaching, personalized meal plans, and group programs in Addis Ababa and online — helping you build a healthier relationship with food, no strict diets required.">
+<meta property="og:title" content="Root & Rise Nutrition — Gelila, RDN">
+<meta property="og:description" content="Real food, no rules, results you can keep. Book a free intro call with dietitian Gelila.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
@@ -199,6 +202,39 @@
   .signup-note{ font-size:12px; color:rgba(246,241,224,0.6); margin-top:10px; }
   @media(max-width:860px){ .magnet .wrap{ grid-template-columns:1fr; } .guide-mock{ transform:none; max-width:340px; margin:0 auto; } }
 
+  /* CONTENT HUB */
+  .hub{ background:var(--paper-alt); }
+  .hub h2{ font-size:34px; margin-bottom:12px; }
+  .hub > .wrap > p{ max-width:520px; color:var(--ink); margin-bottom:48px; font-size:16px; }
+  .hub-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:24px; }
+  .hub-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .hub-thumb{
+    height:150px;
+    background:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--cream);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+  }
+  .hub-card.recipe .hub-thumb{ background:var(--berry); }
+  .hub-card.video .hub-thumb{ background:var(--forest); }
+  .hub-body{ padding:20px 22px; }
+  .hub-kind{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--sage); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px; display:block; }
+  .hub-card h3{ font-size:18px; margin-bottom:8px; }
+  .hub-card p{ font-size:14px; color:var(--ink); opacity:0.8; margin-bottom:14px; }
+  .hub-card a{ text-decoration:none; font-size:13px; font-weight:600; color:var(--berry); }
+
+  /* SOCIAL PROOF BAR */
+  .proof{ background:var(--ink); color:var(--paper); padding:40px 0; }
+  .proof .wrap{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:24px; }
+  .proof-stat{ text-align:center; }
+  .proof-num{ font-family:'Fraunces', serif; font-size:28px; color:var(--cream); }
+  .proof-label{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--sage); margin-top:4px; }
+  .proof-mentions{ font-size:13px; color:rgba(246,241,224,0.6); font-family:'IBM Plex Mono', monospace; }
+
   /* BOOKING */
   .booking{ background:var(--forest); color:var(--cream); }
   .booking .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:64px; }
@@ -234,6 +270,16 @@
 
   footer{ padding:32px 0; text-align:center; font-size:13px; color:var(--sage); }
 
+  footer{ padding:48px 0 28px; background:var(--forest-dark); color:var(--paper); }
+  .foot-grid{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:32px; padding-bottom:28px; border-bottom:1px solid rgba(246,241,224,0.15); }
+  .foot-brand{ font-family:'Fraunces', serif; font-size:19px; color:var(--cream); }
+  .foot-links{ display:flex; gap:24px; list-style:none; font-size:13px; }
+  .foot-links a{ text-decoration:none; color:rgba(246,241,224,0.75); }
+  .foot-social{ display:flex; gap:14px; font-size:13px; }
+  .foot-social a{ text-decoration:none; color:rgba(246,241,224,0.75); border:1px solid rgba(246,241,224,0.3); border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono', monospace; font-size:11px; }
+  .foot-bottom{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; padding-top:20px; font-size:12px; color:rgba(246,241,224,0.5); }
+  .foot-bottom a{ text-decoration:none; color:rgba(246,241,224,0.5); }
+
   .note{
     background:var(--berry); color:var(--cream); font-family:'IBM Plex Mono', monospace;
     font-size:12px; text-align:center; padding:8px 16px;
@@ -250,6 +296,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#hub">Content</a></li>
       <li><a href="#booking">Booking</a></li>
     </ul>
     <a href="#booking" class="btn btn-berry nav-cta">Book a call</a>
@@ -336,6 +383,43 @@
   </div>
 </section>
 
+<section class="hub" id="hub">
+  <div class="wrap">
+    <span class="eyebrow">Content hub</span>
+    <h2>Tips, recipes, and real talk</h2>
+    <p>A running mix of nutrition guides, simple recipes, and short videos — pulled from Instagram and TikTok.</p>
+    <div class="hub-grid">
+      <div class="hub-card">
+        <div class="hub-thumb">[ blog thumbnail ]</div>
+        <div class="hub-body">
+          <span class="hub-kind">Blog</span>
+          <h3>5 nutrition myths worth dropping</h3>
+          <p>Common food rules that aren't backed by evidence — and what to focus on instead.</p>
+          <a href="#">Read post →</a>
+        </div>
+      </div>
+      <div class="hub-card recipe">
+        <div class="hub-thumb">[ recipe photo ]</div>
+        <div class="hub-body">
+          <span class="hub-kind">Recipe</span>
+          <h3>15-minute lentil bowl</h3>
+          <p>A balanced, budget-friendly dinner you can make with pantry staples.</p>
+          <a href="#">Get the recipe →</a>
+        </div>
+      </div>
+      <div class="hub-card video">
+        <div class="hub-thumb">[ embedded reel ]</div>
+        <div class="hub-body">
+          <span class="hub-kind">Video</span>
+          <h3>What "gut health" actually means</h3>
+          <p>A quick, no-jargon explainer from Instagram.</p>
+          <a href="#">Watch on Instagram →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="testimonials wrap">
   <span class="eyebrow">Testimonials</span>
   <h2>What clients say</h2>
@@ -370,6 +454,15 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <div class="proof-stat"><div class="proof-num">24K</div><div class="proof-label">Instagram</div></div>
+    <div class="proof-stat"><div class="proof-num">41K</div><div class="proof-label">TikTok</div></div>
+    <div class="proof-stat"><div class="proof-num">3.2K</div><div class="proof-label">Newsletter</div></div>
+    <div class="proof-mentions">[ Featured in: Local Wellness Mag · Health & Home Podcast ]</div>
   </div>
 </section>
 
@@ -421,7 +514,27 @@
 </section>
 
 <footer>
-  <div class="wrap">Root & Rise Nutrition — Addis Ababa & online · gelila@rootandrise.co</div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">Root & Rise Nutrition</div>
+      <ul class="foot-links">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#hub">Content</a></li>
+        <li><a href="#booking">Contact</a></li>
+      </ul>
+      <div class="foot-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="TikTok">TT</a>
+        <a href="#" aria-label="Email">@</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Root & Rise Nutrition — Gelila, RDN · Addis Ababa & online</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></span>
+    </div>
+  </div>
 </footer>
 
 </body>
