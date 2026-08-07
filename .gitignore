@@ -1,0 +1,19 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Node (if used later)
+node_modules/
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# VS Code
+.vscode/
+
+# Flutter (if you connect later)
+.dart_tool/
+.build/
