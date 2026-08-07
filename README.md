@@ -47,15 +47,26 @@ Change these and the whole site re-themes.
 - Testimonials — `.testimonials` section
 - Blog/recipe/video cards — `#hub` section
 
-## Still needs to be wired up before launch
+## Still needs your real account details before launch
 
-This template ships with **static placeholders** for anything that requires a backend:
+The template now uses real, free services — you just need to plug in your own account IDs:
 
-- [ ] **Booking calendar** — replace the mock time-slot list with an embedded Calendly, Acuity, or Cal.com widget
-- [ ] **Contact form** — connect to a form backend (e.g. Formspree, Netlify Forms) so submissions actually send
-- [ ] **Email signup** — connect to an email service (Mailchimp, ConvertKit, etc.) for the lead magnet
+- [ ] **Booking calendar** — sign up at [calendly.com](https://calendly.com), replace `YOUR-CALENDLY-USERNAME` in the `#booking` section
+- [ ] **Contact form** — sign up at [formspree.io](https://formspree.io), replace `YOUR-FORM-ID` in the contact `<form>` in the `#booking` section
+- [ ] **Email signup (lead magnet)** — create a second Formspree form (or connect Mailchimp/ConvertKit) and replace `YOUR-FORM-ID` in the `.signup-form`
 - [ ] **Real photo** — swap out the monogram placeholder in the hero
 - [ ] **Social links** — footer icons currently point to `#`
+- [ ] **Real testimonials, pricing, and blog/recipe content** — replace placeholder text throughout
+
+## Deploying with GitHub Pages
+
+1. Push this repo to GitHub (make sure `index.html` is in the root)
+2. Go to **Settings → Pages** in your repo
+3. Under "Build and deployment", set **Source** to `Deploy from a branch`
+4. Set **Branch** to `main` (or your default branch) and folder to `/ (root)`
+5. Save — your site will be live at `https://<your-username>.github.io/<repo-name>/` within a minute or two
+
+No build step needed since this is plain HTML/CSS.
 
 ## License
 
