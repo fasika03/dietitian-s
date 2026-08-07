@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Root & Rise Nutrition — Gelila, RDN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2B2620;
+    --paper:#F3E9CE;
+    --paper-alt:#EADFC0;
+    --forest:#3A4A2E;
+    --forest-dark:#283420;
+    --berry:#7A2E3D;
+    --berry-dark:#5E2230;
+    --sage:#6E8259;
+    --cream:#F6F1E0;
+    --line: rgba(43,38,32,0.16);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.1;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+  section{padding:96px 0;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--sage);
+    font-weight:600;
+    margin-bottom:16px;
+    display:block;
+  }
+  .btn{
+    display:inline-block;
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    padding:14px 28px;
+    border-radius:2px;
+    text-decoration:none;
+    cursor:pointer;
+    border:1.5px solid transparent;
+    transition: transform 0.15s ease;
+  }
+  .btn:hover{ transform: translateY(-1px); }
+  .btn-berry{ background:var(--berry); color:var(--cream); }
+  .btn-berry:hover{ background:var(--berry-dark); }
+  .btn-outline{ background:transparent; border-color:var(--cream); color:var(--cream); }
+  .btn-outline-dark{ background:transparent; border-color:var(--ink); color:var(--ink); }
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; }
+  .logo{ font-family:'Fraunces', serif; font-size:20px; font-weight:600; }
+  .logo span{ color:var(--berry); }
+  .nav-links{ display:flex; gap:32px; list-style:none; font-size:14px; font-weight:500; }
+  .nav-links a{ text-decoration:none; }
+  .nav-cta{ display:none; }
+  @media(min-width:720px){ .nav-cta{ display:inline-block; } }
+
+  /* HERO */
+  .hero{
+    background:var(--forest);
+    color:var(--cream);
+    padding:88px 0 96px;
+  }
+  .hero .wrap{ display:grid; grid-template-columns:1.2fr 1fr; gap:56px; align-items:center; }
+  .hero h1{ font-size:52px; margin-bottom:22px; }
+  .hero p.lead{ font-size:18px; max-width:480px; color:rgba(246,241,224,0.85); margin-bottom:32px; }
+  .hero .cta-row{ display:flex; gap:16px; flex-wrap:wrap; }
+  .avatar-frame{
+    width:280px; height:280px; margin:0 auto;
+    border-radius:50%;
+    border:2px dashed rgba(246,241,224,0.4);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .avatar-frame .inner{
+    width:236px; height:236px; border-radius:50%;
+    background:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-size:56px; color:var(--forest-dark);
+  }
+  .avatar-label{
+    text-align:center; font-family:'IBM Plex Mono', monospace; font-size:11px;
+    color:rgba(246,241,224,0.55); margin-top:14px; letter-spacing:0.04em;
+  }
+  @media(max-width:860px){
+    .hero .wrap{ grid-template-columns:1fr; text-align:center; }
+    .hero p.lead{ margin-left:auto; margin-right:auto; }
+    .hero .cta-row{ justify-content:center; }
+    .hero h1{ font-size:38px; }
+  }
+
+  /* ABOUT */
+  .about .wrap{ display:grid; grid-template-columns:1fr 320px; gap:64px; align-items:start; }
+  .about h2{ font-size:34px; margin-bottom:20px; }
+  .about p{ margin-bottom:18px; font-size:16px; color:var(--ink); max-width:520px; }
+  .about .creds{ margin-top:28px; font-size:14px; color:var(--sage); font-weight:600; font-family:'IBM Plex Mono', monospace; }
+  @media(max-width:860px){ .about .wrap{ grid-template-columns:1fr; } }
+
+  /* NUTRITION FACTS SIGNATURE PANEL */
+  .facts-panel{
+    background:var(--cream);
+    border:3px solid var(--ink);
+    padding:14px 18px 18px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .facts-title{ font-family:'Fraunces', serif; font-weight:600; font-size:24px; border-bottom:8px solid var(--ink); padding-bottom:6px; }
+  .facts-sub{ font-size:12px; border-bottom:1px solid var(--ink); padding:6px 0; display:flex; justify-content:space-between; }
+  .facts-thick{ border-bottom:5px solid var(--ink); padding:6px 0 8px; font-size:13px; font-weight:600; }
+  .facts-row{ border-bottom:1px solid var(--line); padding:7px 0; font-size:12.5px; display:flex; justify-content:space-between; gap:10px; }
+  .facts-row b{ font-weight:600; }
+  .facts-footer{ font-size:10.5px; margin-top:10px; color:var(--ink); opacity:0.7; line-height:1.5; }
+
+  /* SERVICES */
+  .services{ background:var(--paper-alt); }
+  .services h2{ font-size:34px; margin-bottom:12px; }
+  .services > .wrap > p{ max-width:520px; color:var(--ink); margin-bottom:48px; font-size:16px; }
+  .card-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:24px; }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-top:4px solid var(--sage);
+    padding:28px 24px;
+    display:flex; flex-direction:column;
+  }
+  .card .idx{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--sage); font-weight:600; margin-bottom:12px; }
+  .card h3{ font-size:21px; margin-bottom:10px; }
+  .card p{ font-size:14.5px; color:var(--ink); opacity:0.85; margin-bottom:20px; flex-grow:1; }
+  .card .price{ font-family:'IBM Plex Mono', monospace; font-size:13px; font-weight:600; color:var(--berry); margin-bottom:16px; }
+  .card a{ text-decoration:none; font-size:14px; font-weight:600; color:var(--berry); border-bottom:1.5px solid var(--berry); align-self:flex-start; padding-bottom:2px; }
+
+  /* TESTIMONIALS */
+  .testimonials h2{ font-size:34px; margin-bottom:48px; }
+  .t-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:28px; }
+  .t-card{
+    background:var(--paper-alt);
+    border-left:4px solid var(--berry);
+    padding:26px 24px;
+  }
+  .t-quote{ font-family:'Fraunces', serif; font-style:italic; font-size:17px; margin-bottom:18px; color:var(--ink); }
+  .t-person{ display:flex; align-items:center; gap:12px; }
+  .t-avatar{
+    width:38px; height:38px; border-radius:50%;
+    background:var(--sage); color:var(--forest-dark);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace; font-size:13px; font-weight:600;
+  }
+  .t-name{ font-size:14px; font-weight:600; }
+  .t-detail{ font-size:12.5px; color:var(--ink); opacity:0.65; }
+
+  /* LEAD MAGNET */
+  .magnet{ background:var(--berry); color:var(--cream); }
+  .magnet .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .magnet .eyebrow{ color:rgba(246,241,224,0.75); }
+  .magnet h2{ font-size:32px; color:var(--cream); margin-bottom:14px; }
+  .magnet p.lead{ color:rgba(246,241,224,0.85); margin-bottom:0; max-width:440px; }
+  .guide-mock{
+    background:var(--paper);
+    border:1px solid rgba(0,0,0,0.1);
+    padding:32px 28px;
+    color:var(--ink);
+    transform: rotate(-2deg);
+    box-shadow: 10px 10px 0 rgba(43,38,32,0.18);
+  }
+  .guide-mock .tag{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--sage); font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; display:block;}
+  .guide-mock h3{ font-size:26px; margin-bottom:10px; }
+  .guide-mock p{ font-size:14px; opacity:0.8; margin-bottom:20px; }
+  .signup-form{ display:flex; gap:0; max-width:420px; margin-top:24px; }
+  .signup-form input{
+    flex:1; background:rgba(246,241,224,0.1); border:1px solid rgba(246,241,224,0.35);
+    border-right:none; padding:13px 16px; color:var(--cream); font-family:'Work Sans',sans-serif; font-size:14px;
+  }
+  .signup-form input::placeholder{ color:rgba(246,241,224,0.45); }
+  .signup-form button{
+    background:var(--cream); color:var(--berry-dark); border:none; font-weight:600;
+    font-family:'Work Sans',sans-serif; font-size:14px; padding:0 22px; cursor:pointer;
+  }
+  .signup-note{ font-size:12px; color:rgba(246,241,224,0.6); margin-top:10px; }
+  @media(max-width:860px){ .magnet .wrap{ grid-template-columns:1fr; } .guide-mock{ transform:none; max-width:340px; margin:0 auto; } }
+
+  /* BOOKING */
+  .booking{ background:var(--forest); color:var(--cream); }
+  .booking .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:64px; }
+  .booking h2{ font-size:34px; margin-bottom:16px; color:var(--cream); }
+  .booking p.lead{ color:rgba(246,241,224,0.8); margin-bottom:28px; max-width:420px; }
+  .slot-list{ display:flex; flex-direction:column; gap:10px; margin-bottom:24px; }
+  .slot{
+    background:rgba(246,241,224,0.06);
+    border:1px solid rgba(246,241,224,0.25);
+    padding:14px 18px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:14px;
+  }
+  .slot button{
+    background:transparent; border:1px solid var(--cream); color:var(--cream);
+    font-family:'Work Sans',sans-serif; font-size:13px; font-weight:600;
+    padding:6px 14px; border-radius:2px; cursor:pointer;
+  }
+  .slot button:hover{ background:var(--cream); color:var(--forest); }
+  form{ display:flex; flex-direction:column; gap:14px; }
+  form label{ font-size:12px; font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.06em; color:rgba(246,241,224,0.7); margin-bottom:-8px; }
+  form input, form textarea{
+    background:rgba(246,241,224,0.08);
+    border:1px solid rgba(246,241,224,0.3);
+    padding:12px 14px;
+    color:var(--cream);
+    font-family:'Work Sans', sans-serif;
+    font-size:14px;
+    border-radius:2px;
+  }
+  form input::placeholder, form textarea::placeholder{ color:rgba(246,241,224,0.4); }
+  form textarea{ resize:vertical; min-height:90px; }
+
+  footer{ padding:32px 0; text-align:center; font-size:13px; color:var(--sage); }
+
+  .note{
+    background:var(--berry); color:var(--cream); font-family:'IBM Plex Mono', monospace;
+    font-size:12px; text-align:center; padding:8px 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="note">Placeholder build — swap in real photo, copy, pricing, and a live booking calendar (Calendly, Acuity, etc.) before launch.</div>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Root <span>&</span> Rise</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#booking">Booking</a></li>
+    </ul>
+    <a href="#booking" class="btn btn-berry nav-cta">Book a call</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Nutrition coaching, Addis Ababa & online</span>
+      <h1>Real food, no rules, results you can keep.</h1>
+      <p class="lead">I'm Gelila, a registered dietitian who helps people build a calmer, more sustainable relationship with food — no fads, no guilt, just a plan that fits your actual life.</p>
+      <div class="cta-row">
+        <a href="#booking" class="btn btn-berry">Book a free intro call</a>
+        <a href="#services" class="btn btn-outline">See how I can help</a>
+      </div>
+    </div>
+    <div>
+      <div class="avatar-frame"><div class="inner">G</div></div>
+      <p class="avatar-label">[ your photo goes here ]</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">About</span>
+      <h2>Why I do this work</h2>
+      <p>I became a dietitian after watching people I love cycle through diet after diet — losing weight, regaining it, and losing trust in their own bodies along the way. I wanted to offer something different: guidance rooted in science, not shame.</p>
+      <p>My approach is simple. We build eating patterns that work with your schedule, your budget, and your cravings — not against them. No food is off-limits. No plan you can't actually follow.</p>
+      <div class="creds">RDN &nbsp;·&nbsp; MSc Clinical Nutrition &nbsp;·&nbsp; 8 years in practice</div>
+    </div>
+
+    <div class="facts-panel">
+      <div class="facts-title">Nutrition Facts</div>
+      <div class="facts-sub"><span>Working with Gelila</span><span>1 serving</span></div>
+      <div class="facts-thick">Serving size &nbsp;1 you, as you are</div>
+      <div class="facts-row"><span>Evidence-based guidance</span><b>Included</b></div>
+      <div class="facts-row"><span>Food shaming</span><b>0g</b></div>
+      <div class="facts-row"><span>Real-life meal plans</span><b>Included</b></div>
+      <div class="facts-row"><span>Rigid rules</span><b>0g</b></div>
+      <div class="facts-row"><span>Weekly check-ins</span><b>Included</b></div>
+      <div class="facts-footer">Ingredients: science, patience, real food, and a plan built around your life. Contains no judgment.</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <span class="eyebrow">Services</span>
+    <h2>Ways to work together</h2>
+    <p>Every plan starts with a conversation, not a template. Pick the format that fits, or we'll figure it out on your intro call.</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="idx">1:1</div>
+        <h3>Personal coaching</h3>
+        <p>Ongoing one-on-one sessions to build habits that actually stick, with adjustments as your life changes.</p>
+        <div class="price">From $120 / session</div>
+        <a href="#booking">Book now →</a>
+      </div>
+      <div class="card">
+        <div class="idx">Plan</div>
+        <h3>Personalized meal plans</h3>
+        <p>A custom eating plan built around your preferences, schedule, and goals — no generic templates.</p>
+        <div class="price">From $180</div>
+        <a href="#booking">Book now →</a>
+      </div>
+      <div class="card">
+        <div class="idx">Group</div>
+        <h3>Group reset program</h3>
+        <p>A 6-week small-group program combining nutrition education, meal planning, and community support.</p>
+        <div class="price">From $240</div>
+        <a href="#booking">Book now →</a>
+      </div>
+      <div class="card">
+        <div class="idx">Corp</div>
+        <h3>Corporate wellness</h3>
+        <p>Workshops and ongoing nutrition support for teams — delivered on-site or virtually.</p>
+        <div class="price">Custom pricing</div>
+        <a href="#booking">Enquire →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials wrap">
+  <span class="eyebrow">Testimonials</span>
+  <h2>What clients say</h2>
+  <div class="t-grid">
+    <div class="t-card">
+      <p class="t-quote">"I stopped thinking of foods as good or bad for the first time in years. Small shift, huge relief."</p>
+      <div class="t-person">
+        <div class="t-avatar">JT</div>
+        <div>
+          <div class="t-name">Jordan T.</div>
+          <div class="t-detail">1:1 coaching, 6 months</div>
+        </div>
+      </div>
+    </div>
+    <div class="t-card">
+      <p class="t-quote">"The meal plan actually fit my schedule instead of the other way around. That's what made it stick."</p>
+      <div class="t-person">
+        <div class="t-avatar">AK</div>
+        <div>
+          <div class="t-name">Amara K.</div>
+          <div class="t-detail">Personalized meal plan</div>
+        </div>
+      </div>
+    </div>
+    <div class="t-card">
+      <p class="t-quote">"No lectures, no guilt trips — just clear guidance I could actually follow week to week."</p>
+      <div class="t-person">
+        <div class="t-avatar">DM</div>
+        <div>
+          <div class="t-name">Dawit M.</div>
+          <div class="t-detail">Group reset program</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="magnet">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Free guide</span>
+      <h2>Not ready to book? Start here.</h2>
+      <p class="lead">Grab the 7-Day Meal Reset — simple, no-recipe-required meals and a grocery list, straight to your inbox.</p>
+      <div class="signup-form">
+        <input type="email" placeholder="you@email.com">
+        <button type="button">Send it to me</button>
+      </div>
+      <p class="signup-note">One email, no spam. Unsubscribe anytime.</p>
+    </div>
+    <div class="guide-mock">
+      <span class="tag">Free download</span>
+      <h3>The 7-Day Meal Reset</h3>
+      <p>A simple week of balanced meals, a shoppable grocery list, and three habits to start with — no strict rules, no recipes you need a special trip to the store for.</p>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:var(--cream); opacity:0.7;">Booking</span>
+      <h2>Let's talk</h2>
+      <p class="lead">Start with a free 15-minute intro call — no commitment, just a conversation about where you're at and how I can help.</p>
+      <div class="slot-list">
+        <div class="slot"><span>Tue, 10 Aug — 9:00 AM</span><button type="button">Select</button></div>
+        <div class="slot"><span>Tue, 10 Aug — 2:30 PM</span><button type="button">Select</button></div>
+        <div class="slot"><span>Wed, 11 Aug — 11:00 AM</span><button type="button">Select</button></div>
+      </div>
+      <p style="font-size:13px; color:rgba(246,241,224,0.6);">[ Replace this list with an embedded booking calendar — Calendly, Acuity, or Cal.com all embed directly. ]</p>
+    </div>
+    <div>
+      <form>
+        <label>Name</label>
+        <input type="text" placeholder="Your full name">
+        <label>Email</label>
+        <input type="email" placeholder="you@email.com">
+        <label>Message</label>
+        <textarea placeholder="Tell me a bit about what you're looking for..."></textarea>
+        <button type="button" class="btn btn-berry" style="margin-top:6px;">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Root & Rise Nutrition — Addis Ababa & online · gelila@rootandrise.co</div>
+</footer>
+
+</body>
+</html>
