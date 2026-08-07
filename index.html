@@ -72,13 +72,31 @@
     background:var(--paper);
     border-bottom:1px solid var(--line);
   }
-  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; }
+  nav .wrap{ position:relative; display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; }
   .logo{ font-family:'Fraunces', serif; font-size:20px; font-weight:600; }
   .logo span{ color:var(--berry); }
   .nav-links{ display:flex; gap:32px; list-style:none; font-size:14px; font-weight:500; }
   .nav-links a{ text-decoration:none; }
   .nav-cta{ display:none; }
   @media(min-width:720px){ .nav-cta{ display:inline-block; } }
+  .hamburger{
+    display:flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;
+  }
+  .hamburger span{ width:22px; height:2px; background:var(--ink); display:block; }
+  @media(min-width:720px){ .hamburger{ display:none; } }
+  @media(max-width:719px){
+    .nav-links{
+      display:none;
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--paper);
+      flex-direction:column;
+      gap:0;
+      border-bottom:1px solid var(--line);
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links li{ border-top:1px solid var(--line); }
+    .nav-links a{ display:block; padding:16px 32px; }
+  }
 
   /* HERO */
   .hero{
@@ -290,18 +308,26 @@
 
 <div class="note">Placeholder build — swap in real photo, copy, pricing, and a live booking calendar (Calendly, Acuity, etc.) before launch.</div>
 
-<nav>
+<nav style="position:sticky; top:0;">
   <div class="wrap">
     <div class="logo">Root <span>&</span> Rise</div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#hub">Content</a></li>
       <li><a href="#booking">Booking</a></li>
     </ul>
     <a href="#booking" class="btn btn-berry nav-cta">Book a call</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<script>
+  document.getElementById('hamburgerBtn').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
 
 <section class="hero">
   <div class="wrap">
@@ -472,10 +498,11 @@
       <span class="eyebrow">Free guide</span>
       <h2>Not ready to book? Start here.</h2>
       <p class="lead">Grab the 7-Day Meal Reset — simple, no-recipe-required meals and a grocery list, straight to your inbox.</p>
-      <div class="signup-form">
-        <input type="email" placeholder="you@email.com">
-        <button type="button">Send it to me</button>
-      </div>
+      <!-- Replace YOUR-FORM-ID with a second Formspree form (or a Mailchimp/ConvertKit embed) -->
+      <form class="signup-form" action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+        <input type="email" name="email" placeholder="you@email.com" required>
+        <button type="submit">Send it to me</button>
+      </form>
       <p class="signup-note">One email, no spam. Unsubscribe anytime.</p>
     </div>
     <div class="guide-mock">
@@ -492,22 +519,32 @@
       <span class="eyebrow" style="color:var(--cream); opacity:0.7;">Booking</span>
       <h2>Let's talk</h2>
       <p class="lead">Start with a free 15-minute intro call — no commitment, just a conversation about where you're at and how I can help.</p>
-      <div class="slot-list">
-        <div class="slot"><span>Tue, 10 Aug — 9:00 AM</span><button type="button">Select</button></div>
-        <div class="slot"><span>Tue, 10 Aug — 2:30 PM</span><button type="button">Select</button></div>
-        <div class="slot"><span>Wed, 11 Aug — 11:00 AM</span><button type="button">Select</button></div>
-      </div>
-      <p style="font-size:13px; color:rgba(246,241,224,0.6);">[ Replace this list with an embedded booking calendar — Calendly, Acuity, or Cal.com all embed directly. ]</p>
+      <!-- 
+        CALENDLY SETUP:
+        1. Create a free account at calendly.com and set up your "Intro Call" event type
+        2. Replace YOUR-CALENDLY-USERNAME below with your actual Calendly link
+        3. That's it — the widget below will show your real availability
+      -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR-CALENDLY-USERNAME/intro-call?background_color=3a4a2e&text_color=f6f1e0&primary_color=7a2e3d" style="min-width:280px; height:420px; background:rgba(246,241,224,0.04); border:1px solid rgba(246,241,224,0.2);"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <p style="font-size:12px; color:rgba(246,241,224,0.5); margin-top:10px;">[ Showing placeholder until a real Calendly username is added above ]</p>
     </div>
     <div>
-      <form>
+      <!--
+        FORM SETUP (Formspree — free, no backend code needed):
+        1. Create a free account at formspree.io
+        2. Create a new form and copy your form ID
+        3. Replace YOUR-FORM-ID below with it
+        Submissions will then land in your Formspree inbox / forward to your email.
+      -->
+      <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
         <label>Name</label>
-        <input type="text" placeholder="Your full name">
+        <input type="text" name="name" placeholder="Your full name" required>
         <label>Email</label>
-        <input type="email" placeholder="you@email.com">
+        <input type="email" name="email" placeholder="you@email.com" required>
         <label>Message</label>
-        <textarea placeholder="Tell me a bit about what you're looking for..."></textarea>
-        <button type="button" class="btn btn-berry" style="margin-top:6px;">Send message</button>
+        <textarea name="message" placeholder="Tell me a bit about what you're looking for..." required></textarea>
+        <button type="submit" class="btn btn-berry" style="margin-top:6px;">Send message</button>
       </form>
     </div>
   </div>
