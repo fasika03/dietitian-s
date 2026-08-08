@@ -1,8 +1,9 @@
-# Root & Rise Nutrition — Dietitian Website Template
+# Dietcare Hub — Dietitian Website Template
 
 A responsive, single-page website template for dietitians and nutrition coaches. Built with plain HTML/CSS — no build step, no dependencies.
 
-**Live example content:** Gelila, RDN — a fictional nutrition coaching practice used to demo the layout.
+**Practice:** Dietcare Hub — Gelila, RDN
+**Contact channels wired in:** Telegram ([@DietitianGelila](https://t.me/DietitianGelila)), phone (+251 96 331 8288), Instagram, TikTok
 
 ## Sections
 
